@@ -1,0 +1,59 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
+header{
+    grid-column: 1/2;
+    background-color: cadetblue;
+    text-align: center;
+    padding: 1rem;
+}
+nav{
+    grid-column: 1/2;
+    background-color: aquamarine;
+    position: relative;
+    padding: 1rem;
+    list-style: none;
+}
+nav ul{
+    position: sticky;
+    top: 100px;
+}
+main{
+    background-color: beige;
+}
+main.includeNav{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+}
+main.includeNav nav{
+    grid-row: 1/-1;
+}
+footer{
+    background-color: rgb(226, 205, 14);
+    text-align: center;
+    padding: 1rem;
+}
+footer a{
+    font-size: 2rem;
+}
+p{
+    margin: 5rem auto;
+    width: 80vw;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-size: clamp(2rem, 20vh, 3rem);
+}
+.error{ /*pour les messages d'erreur*/ 
+    color: red;
+}
+.formEror{
+    border-color: red;
+}
