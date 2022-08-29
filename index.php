@@ -29,6 +29,7 @@
             <ol>
                 <li><a href="./ressources/form/01-get.php">Formulaire en _GET</a></li>
                 <li><a href="./ressources/form/02-post.php">Formulaire en _POST</a></li>
+                <li><a href="./ressources/form/03-file.php">Téléverserment</a></li>
         </li>
     </ol>
 

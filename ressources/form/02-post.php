@@ -50,6 +50,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"
         else{
             $error["drink"] = "Veuillez choisir une boisson";
         }
+        // le champ est -il vide ?
+        if(!empty($_POST["cgu"])){
+            $cgu = $_POST["cgu"];
+            //une seule valeur possible , on peut la verifier directmement
+            if($cgu != "cgu"){
+                //a noter que la valuer d'une checkbox ouy radio , si elle n'est pas définie, vaut "on"
+                $error["cgu"] = "Ne mofifiez pas nos formulaires !";
+
+            }
+        }
     }
     function cleanData (string $data): string{
         
@@ -64,17 +74,23 @@ $headerTitle = "Formulaire en POST";
 require("../template/_header.php");
 ?>
 <form action="" method="POST">
-    <input type="text" placeholder="Entrez un nom" name="username">
+    <input type="text" 
+    placeholder="Entrez un nom" 
+    name="username"
+    class="<?php echo (empty($error["username"])? "":"formError")?>"
+    value="<?php echo $username ?>"> <!--permet de memoriser la saisie pour eviter d'avoir à tout resaisir-->
     <span class="error"><?php echo $error["username"]??"" ?></span>
     <br>
-    <fieldset>
+    <fieldset class="<?php echo(empty($error["food"])? "":"formError")?>"> <!--permet de memoriser la saisie pour eviter d'avoir à tout resaisir-->
         <legend>Nourriture Favorite</legend>
         <?php foreach($foodList as $k => $f): ?>
             <input 
             type="radio" 
                 name="food"
                 id="<?php echo$k ?>" 
-                value="<?php echo$k ?>">
+                value="<?php echo $k ?>">
+                <?php echo $food === $k ? "checked":""; ?> <!--permet de memoriser la saisie pour eviter d'avoir à tout resaisir-->
+                <!--Si notre variable $food est egale à l'iteration actuelle, alors on lui ajoute l'attibut "checked"-->
         <label for="<?php echo$k ?>"><?php echo $f ?>
         </label>
         <br>
@@ -87,7 +103,9 @@ require("../template/_header.php");
     <select name="drink" id="boisson">
 
     <?php foreach($drinkList as $k => $d): ?>
-        <option value ="<?php echo $k ?>">
+        <option value ="<?php echo $k ?>"
+        <?php echo ($drink === "k"?"selected":"" )?>  <!--permet de memoriser la saisie pour eviter d'avoir à tout resaisir-->
+        >
             <?php echo $d ?>
         </option>
     <?php endforeach; ?>
@@ -95,6 +113,12 @@ require("../template/_header.php");
     </select>
     <span class="error"><?php echo $error["drink"]??"" ?></span>
     <br>
+    <!-- on ajoute une checkbox "cgu" -->
+    <input type="checkboc" name="cgu" id= "cgu" value = "cgu">
+    <label for="cgu">J'accepte que mes connées ne m'appartiennent plus></label>
+    <span class="error"><?php echo $error["cgu"]??"" ?></span>
+        <!-- fin de checkbox -->
+
     <input type="submit" value="Envoyer" name="submit">
 </form>
 <?php if(empty($error) && isset($_POST["submit"])): ?>
