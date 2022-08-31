@@ -79,8 +79,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"]))
     }
 
 }
-$title = " GET ";
-$headerTitle = "Formulaire en GET";
+$title = " Connexion ";
+$headerTitle = "Formulaire de connexion";
 require("../template/_header.php");
 ?>
     <form action="" method="post"  >

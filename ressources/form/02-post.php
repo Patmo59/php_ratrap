@@ -1,6 +1,6 @@
 <?php 
 /** Les seules différences entre le formulaire _GET et celui Ci en _POST sont
- *  1. la v"rification de la méthode en Post
+ *  1. la vérification de la méthode en Post
  * 2. l'attribut "méthodeé qui passe en post
  * 3. l'utilisation du $_Post au lieu de $_GET
   */
@@ -53,9 +53,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"
         // le champ est -il vide ?
         if(!empty($_POST["cgu"])){
             $cgu = $_POST["cgu"];
-            //une seule valeur possible , on peut la verifier directmement
+            //une seule valeur possible , on peut la vérifier directement
             if($cgu != "cgu"){
-                //a noter que la valuer d'une checkbox ouy radio , si elle n'est pas définie, vaut "on"
+                //à noter que la valeur d'une checkbox ou radio , si elle n'est pas définie, vaut "on"
                 $error["cgu"] = "Ne mofifiez pas nos formulaires !";
 
             }

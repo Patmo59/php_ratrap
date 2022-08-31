@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
     présents dans le code de la page  -->
     <title>Cours PHP <?php echo $title?? "" ?></title>
     <!-- <link rel="stylesheet" href="./ressources/style/style.css"> -->
-    <link rel="stylesheet" href="/php_ratrap/ressources/style/style.css">
+    <link rel="stylesheet" href="/ressources/style/style.css">
 </head>
 <body>
    <!--si j'ai une variable "_header", j'affiche son contenu sinon Syntaxes-->

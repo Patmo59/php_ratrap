@@ -1,10 +1,11 @@
 <?php
 /**
  * Cette page ne devrait être accessible qu'à u utilisateur connecté
- * Bloquer l'accès ç une page aux gens non connectés est uhne action que l'on va souvent repetr. 
+ * Bloquer l'accès à une page aux gens non connectés est une action que l'on va souvent repetr. 
  * Plutot que de réécrire le meme code à chq fois, autant faire un fichier "is_logged.php" qu'on va inclure
  */
-require("../_islogged.php");
+
+require("../service/_islogged.php");
 unset($_SESSION);
 session_destroy();
 setcookie("PHPSESSID", "", time()-3600);

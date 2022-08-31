@@ -8,7 +8,7 @@ require("./ressources/template/_nav.php");
 <h1>GO TO</h1>
 <?php
 
-/* goto permet de sauter une partie du code pour aller à la suivante. On peut s'en servire avec une condition pour ne pas faire certaine action.
+/* goto permet de sauter une partie du code pour aller à la suivante. On peut s'en servir avec une condition pour ne pas faire certaines actions.
 On peut s'en servir à la façon d'un break pour sortir d'une boucle
 !Attention, on ne peut pas :
 entrer dans une fonction, une boucle ou une condition avec goto

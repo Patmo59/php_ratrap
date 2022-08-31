@@ -1,14 +1,14 @@
 <?php
 
-//Include et require permettent d'inclure du'autres fichiers dans notre code
-// Dans un dossier "ressoures", nous allons créer un dossier "template" contenant les fichiers suivan,ts :
+//Include et require permettent d'inclure d'autres fichiers dans notre code
+// Dans un dossier "ressoures", nous allons créer un dossier "template" contenant les fichiers suivants :
 
 // "_header.php";
 // "_footer.php";
 // "_ nav.php";
 
 
-// Pous toujours dans note dossier ressources, on va créer uun dossier "style.css :"
+// Puis toujours dans note dossier ressources, on va créer un dossier "style.css :"
 // le "_" en debut  est une convention que ce fichier ne doit pas etre chargé seul : c'est seulement
 //un composant, une parite de quelque chose d'autre.
 // require bloque le script en cas d'erreur " Fatal Error",  include donne un warning
