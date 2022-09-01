@@ -33,6 +33,7 @@
                 <li><a href="./ressources/form/04-connexion.php">Connection</a></li>
                 <li><a href="./ressources/form/05-Deconnexion.php">Deconnection</a></li>
                 <li><a href="./ressources/form/06-Securite.php">Sécurité</a></li>
+                <li><a href="./ressources/form/07-mail.php">Envoi de Mail</a></li>
         </li>
     </ol>
 

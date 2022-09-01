@@ -7,6 +7,8 @@
  * autres).
  */
 require("../service/_islogged.php");
+// j'inclus mon fichier csrf
+require("../service/_csrf.php");
 $error = $password ="";
 if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["hash"])){
     if(empty($_POST["hash"])){
@@ -55,6 +57,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["hash"])){
 
      if(!isset($_POST["captcha"], $_SESSION["captchaStr"]) || $_POST["captcha"] != $_SESSION["captchaStr"]){
         $error = "Captcha incorrecte";
+        /**
+         * Parlons des attaques CSRF ou XSRF (Cross-site Request Forgery).
+         * Cette attaque a pour but de créer une requete get ou post sur un site externe, 
+         * mais de renvoyer les informations de cette requete , vers votre site
+         * afin que votre site valide une requete que votre utilisateur n'aurait pas voulu.
+         * 
+         * Pourt se proteger de ce genre de requete, un captcha peut suffire, mais si on demande
+         * à vos utilisateurs de remplir un capchta à chaque petit message qu'il veut envoyer , cela 
+         * va vite l'agacer.
+         * 
+         * On utilisera dopnc des jetons (token) CSRF.
+         * Le principe est de générer un jeton sauvegardé en session et de donner un input hidden à notre formulaire contenant ce jeton, puis verifier si les deux correspondent.
+         * 
+         * Pour cela on va passer par un fichier externe que l'on va créer dans nos services "-csrf.php
+         */
+if(!isCsrfValid()()){
+    $e = " La methode utilisée n'est pas permeise ou vou avez été trop lent";
+}
+
      }
 }
 $title = " Security ";
@@ -68,14 +89,18 @@ require("../template/_header.php");
 <form action="" method="POST">
 <input type="text" name="password"
     placeholder="Mot de passe à Hacher" required>
-    <!-- Début de Captcha-->
+<!-- Début de Captcha-->
     <div>
         <label for=""captcha">Veuillez recopier le texte ci dessous 
         pour valider : </label><br>
         <img src="../service/_captcha.php" alt="CAPTCHA"><br>
         <input type="text" id="captcha" name="captcha" pattern="[A-Z0-9]{6}">
     </div>
-    <!-- Fin de Captcha-->
+<!-- Fin de Captcha-->
+
+<!--Debut CSRF-->
+    <?php setCsrf(15)?>
+<!-- Fin CSRF-->
 
 <input type="submit" value="Hacher" name="hash">
 <span class="error"><?php echo $error ?? ""?> </span>
@@ -92,3 +117,6 @@ dans la réalité on n'affiche rien ni en clair ni en haché-->
 endif;
 require("../template/_footer.php");
 ?>
+<!-- On peut verifier l'insertion de la protection CSRF en inspectant le fichier ou
+l'on voit l'insertion du token cf /Documentation/Capture.jpg
+-->

@@ -57,3 +57,7 @@ p{
 .formEror{
     border-color: red;
 }
+form{
+    width: 75vw;
+    margin: 1rem auto;
+}
