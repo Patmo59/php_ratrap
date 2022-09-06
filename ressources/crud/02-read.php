@@ -1,4 +1,5 @@
 <?php
+session_start();
 $title = "crud -READ";
 $headerTitle = " liste utilisateurs";
 require("../service/_pdo.php");
@@ -36,7 +37,7 @@ if($users):
         </tr>
     </thead>
 
-    <?php foreach($users as $rows):?>
+    <?php foreach($users as $row):?>
         <tr>
             <!-- tr>td*2+td>a*3 -->
             <td><?php echo $row["idUser"] ?></td>
@@ -44,7 +45,7 @@ if($users):
             <td>
                 <a href="./exercice/blog/read.php?id=<?php
                     echo $row["idUser"] ?>">Voir</a>
-                <?php if(isset($_SESSION["idUser"]) && $_SESSION["isUser"] === $row["idUser"]): ?>
+                <?php if(isset($_SESSION["idUser"]) && $_SESSION["idUser"] === $row["idUser"]): ?>
                     &nbsp;|&nbsp;
                 <a href="./03-update.php?id=<?php
                     echo $row["idUser"] ?>">Editer</a>
@@ -57,6 +58,6 @@ if($users):
 </table>
 <?php
 endif;
-
+// var_dump($_SESSION);
 require("../template/_footer.php");
 ?>

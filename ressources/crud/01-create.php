@@ -139,4 +139,4 @@ require "../template/_header.php" ?>
 <!-- 
     Pour des raisons de simplicité du cours, nous n'ajoutons pas de sécurité supplémentaire à ce formulaire, mais pensez à le faire sur vos projets. *
 -->
-<?php require "../ressources/template/_footer.php" ?>
+<?php require "../template/_footer.php" ?>

@@ -1,5 +1,3 @@
-<!-- Copiue du connesier 04-connexion  attention a remettre les chemin des require en ordreConnexion
-
 <?php
 session_start();
 // si l'utilisateur est connecté il n'y a rien a faire sur l'inscription.
@@ -22,10 +20,34 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             }else{  // a verifier si on en a besoin
                 $pass = trim($_POST["password"]);
             }
+            if(empty($error)){
+                require "../service/_pdo.php";
+                $pdo = connexionPDO();
+                $sql = $pdo->prepare("SELECT * FROM users WHERE email=?");
+                $sql->execute([$email]);
+                $user = $sql->fetch();
+                if($user){
+                    if(password_verify($pass, $user["password"])){
+                        $_SESSION["logged"] = true; 
+                        $_SESSION["username"] = $user["username"];
+                        $_SESSION["idUser"] = $user["idUser"];
+                        $_SESSION["email"] = $user["email"];
+                        $_SESSION["expire"] = time()+ (60*60);
+                        header("location: ./02-read.php");
+                        exit;
+                    }
+                    else{
+                        $error["login"] = "Email ou Mot de passe incorrecte.";
+                    }
+                }
+                else{
+                    $error["login"] = "Email ou Mot de passe incorrecte.";
+                }
+            }
         }
 $title = "CRUD - Create";
 $headerTitle = "CONNEXION";
-require "../../template/_header.php" 
+require "../template/_header.php" 
 ?>
   <!-- form:post>label+input:email+span.error+br+label+input:password+span.error+br+input:submit -->
 <form action="" method="post">
@@ -44,4 +66,4 @@ require "../../template/_header.php"
     <input type="submit" value="Connexion">
 </form>
 
-<?php require "../../template/_footer.php" ?>
+<?php require "../template/_footer.php" ?>

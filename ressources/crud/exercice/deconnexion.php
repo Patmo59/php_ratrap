@@ -1,6 +1,6 @@
 <?php
 
-require("../service/_isloggedV2.php");
+require("../../service/_isloggedV2.php");
 islogged(true, "./connexion.php");
 unset($_SESSION);
 session_destroy();

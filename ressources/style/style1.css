@@ -1,0 +1,108 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: blanchedalmond;
+    height: 800px;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 3rem;
+    font-weight: 900;
+
+}
+header li{
+    list-style: none;
+}
+ol{
+    list-style: none;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height:800px;
+}
+h3{
+    margin-top: 10%;
+    color: chocolate;
+    text-align: center;
+    font-size: 3rem;
+}
+.syntaxe{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: darkolivegreen;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.637);
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 25px;
+    left:25%;
+    transform: translate(-50% ,-33%);
+    border: 1px solid black;
+    list-style: none;
+} 
+.formulaire{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: darkolivegreen;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.637);
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 25px;
+    left:50%;
+    transform: translate(-50% ,-33%);
+    border: 1px solid black;
+    list-style: none;
+} 
+.crud{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: darkolivegreen;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.637);
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 25px;
+    left:80%;
+    transform: translate(-50% ,-33%);
+    border: 1px solid black;
+    list-style: none;
+} 
+.exercice{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: darkolivegreen;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.637);
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 25px;
+    left:80%;
+    transform: translate(-50% ,-33%);
+    border: 1px solid black;
+    list-style: none;
+} 
+a{
+    display: flex;
+    width: 250px;
+    background-color: rgb(120, 48, 48);
+    color: white;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin: 10px 5px;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-weight: 900;
+    justify-content: center;
+}

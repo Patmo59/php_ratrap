@@ -1,4 +1,4 @@
-<!-- Copiue du connesier 04-connexion  attention a remettre les chemin des require en ordreConnexion
+
 
 <?php
 session_start();
@@ -21,6 +21,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $error["password"] = "Veuillez entrer un mot de passe.";
             }else{  // a verifier si on en a besoin
                 $pass = trim($_POST["password"]);
+            }
+            if(empty($error)){
+                require "../../ressources/service/_pdo.php";
+                $pdo = connexionPDO();
+                $sql = $pdo->prepare("SELECT * FROM users WHERE email=?");
+                $sql->execute([$email]);
+                $user = $sql->fetch();
+                if($user){
+                    if(password_verify($pass, $user["password"])){
+                        $_SESSION["logged"] = true; 
+                        $_SESSION["username"] = $user["username"];
+                        $_SESSION["idUser"] = $user["idUser"];
+                        $_SESSION["email"] = $user["email"];
+                        $_SESSION["expire"] = time()+ (60*60);
+                        header("location: ../02-read.php");
+                        exit;
+                    }
+                    else{
+                        $error["login"] = "Email ou Mot de passe incorrecte.";
+                    }
+                }
+                else{
+                    $error["login"] = "Email ou Mot de passe incorrecte.";
+                }
             }
         }
 $title = "CRUD - Create";

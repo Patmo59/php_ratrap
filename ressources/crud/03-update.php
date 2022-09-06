@@ -1,6 +1,6 @@
 <?php
 require "../service/_isloggedV2.php";
-isLogged(true, "./exercice/connexion.php");
+isLogged(true, "./05-connexion.php");
 
 /**
  * si l'utilisateur n'est pas connecté, il est redirigé.
@@ -13,7 +13,7 @@ if(empty($_GET["id"]) || $_SESSION["idUser"] != $_GET["id"]){
     exit;
 }
 // je recupère les informations de mon utilisateur
-require "../ressources/service/_pdo.php";
+require "../service/_pdo.php";
 $pdo = connexionPDO();
 $sql = $pdo-> prepare ("SELECT * FROM users WHERE idUser = ?");
 $sql -> execute([(int)$_GET["id"]]);
@@ -38,12 +38,13 @@ if($_SERVER["REQUEST_METHOD"]== "POST"  && isset($_POST["update"]))
 
     if(!empty($_POST["email"]))
     {
-        $username = cleanData($_POST["email"]);
-        if(!preg_match("/^[a-zA-Z' -]{2-25}$/",$username)){
+        $email = cleanData($_POST["email"]);
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+
             $error["email"]= "Veuillez saisir un email valide";
         }
     }else{
-        $username = $user["email"];
+        $email = $user["email"];
     }
     if(!empty($_POST["password"])){
         if(empty($_POST["passwordBis"])){
@@ -67,8 +68,8 @@ if($_SERVER["REQUEST_METHOD"]== "POST"  && isset($_POST["update"]))
         $sql = $pdo->prepare("UPDATE users SET
             username= :us,
             email=:em,
-            password=mdp
-            WHERE idUser = id");
+            password=:mdp
+            WHERE idUser = :id");
         $sql ->execute([
             "id"=> $user["idUser"],
             "em"=>$email,
@@ -87,8 +88,8 @@ if($_SERVER["REQUEST_METHOD"]== "POST"  && isset($_POST["update"]))
 }// fin du traitement du formulaire
 $title = "crud -Update";
 $headerTitle = " Mise à jour du Profil";
-require ("../ressources/template/header.php");
-if($users):
+require ("../template/_header.php");
+if($user):
 ?>
 <form action="" method="post">
     <!-- username -->
@@ -96,8 +97,8 @@ if($users):
     <input 
         type="text" 
         name="username" 
-        id="username" >
-        value= "<?php echo $user["usename"] ?>"
+        id="username" 
+        value= "<?php echo $user["username"] ?>">
         <span class="error"><?php echo $error["username"]??"" ?></span>
         <br>
         <!-- email -->
@@ -105,8 +106,8 @@ if($users):
         <input 
         type="email" 
         name="email" 
-        id="email" >
-        value= "<?php echo $user["email"] ?>"
+        id="email" 
+        value= "<?php echo $user["email"] ?>">
     <span class="error"><?php echo $error["email"]??"" ?></span>
     <br>
     <!-- password -->
@@ -125,6 +126,6 @@ if($users):
     <p>Aucun utilisateur trouvé</p>
 <?php
 endif;
-require "../ressources/template/-footer.php";
+require "../template/_footer.php";
 
 

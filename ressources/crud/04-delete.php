@@ -1,6 +1,6 @@
 <?php
 require "../service/_isloggedV2.php";
-isLogged(true, "./exercice/connexion.php");
+isLogged(true, "./05-connexion.php");
 
 if(empty($_GET["id"]) || $_SESSION["idUser"] != $_GET["id"]){
     header("Location: ./02-read.php");
@@ -14,13 +14,13 @@ $sql->execute([(int)$_GET["id"]]);
 unset($_SESSION);
 session_destroy();
 setcookie("PHPSESSID", "" , time()-3600);
-//avant de le rediriger o,n luis affiche un petiot message
+//avant de le rediriger on lui affiche un petit message
 header("refresh: 5; url =  /");
 $title = "CRUD- Delete";
 $headerTitle = "Suppression d'utilisateur";
 require "../template/_header.php";
-//rowcount permet de savoir combien de lignes ont été effacées par la drnière requete
-echo  $sql-> rowCount(), "ligne (s) effdacée";
+//rowCount permet de savoir combien de lignes ont été effacées par la drnière requete
+echo  $sql-> rowCount(), "ligne (s) effacée(s)";
 ?>
 <p>Vous avez bien <strong>supprimé</strong> votre compte .
 vous allez être redirigé d'ici peu
