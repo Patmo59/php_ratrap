@@ -1,7 +1,7 @@
 <?php 
 /** Les seules différences entre le formulaire _GET et celui Ci en _POST sont
  *  1. la vérification de la méthode en Post
- * 2. l'attribut "méthodeé qui passe en post
+ * 2. l'attribut "méthode" qui passe en post
  * 3. l'utilisation du $_Post au lieu de $_GET
   */
 
@@ -69,9 +69,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"
         
         return htmlspecialchars($data);
     }
+
+    
 $title = " POST ";
 $headerTitle = "Formulaire en POST";
 require("../template/_header.php");
+$mainClass = ".includeNav";
 ?>
 <form action="" method="POST">
     <input type="text" 

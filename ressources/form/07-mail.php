@@ -1,4 +1,45 @@
 <?php
+session_start();
+require("../service/_mailer.php");
+$email=$subject=$body=$envoi = "";
+$error =[];
+
+if($_SERVER["REQUEST_METHOD"]=== "POST" && isset($_POST["contact"]))
+{
+    if(empty($_POST["email"]))
+        $error["email"]= "Veuillez entrer un email.";
+    else{
+        $email = cleanData($_POST["email"]);
+
+        if(!filter_var($email,FILTER_VALIDATE_EMAIL))
+            $error["email"] = "Veuillez entrer un email valide ";
+    }
+    if(empty($_POST["sujet"]))
+    $error["sujet"]= "Veuillez saisir un sujet.";
+    else{
+        $sujet =cleanData($_POST["sujet"]);
+    }
+    if(empty($_POST["corps"]))
+    $error["corps"] = "Veuillez saisir votre message.";
+    else{
+        $body =cleanData($_POST["corps"]);
+    }
+    if(!isset($_POST["captcha"], $_SESSION["captchaStr"]) || $_POST["captcha"] != $_SESSION["captchaStr"]){
+        $error["captcha"] = "Captcha incorrecte";
+    }
+    if(empty($error))
+        $envoi = sendMail(
+            $email,
+            "cours@nolwenn.fr",
+            $subject,
+            $body
+        );
+}
+function cleanData (string $data): string{
+    $data = trim($data);
+    $data = stripslashes($data);
+    return htmlspecialchars($data);
+}
 $title = " Email ";
 $headerTitle = "Courriel";
 require("../template/_header.php");
@@ -23,6 +64,7 @@ if(!empty($envoi)):
         <br>
         <img src="../service/_captcha.php" alt="CAPTCHA">
         <input type="text" id="captcha" pattern="[A-Z0-9]"{6}>
+        <span class="error"><?php echo $error["captcha"]?? "" ?></span>
     </div>
     <input type="submit" value="Envoyer" name="contact">
 </form>

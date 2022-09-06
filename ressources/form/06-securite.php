@@ -73,7 +73,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["hash"])){
          * Pour cela on va passer par un fichier externe que l'on va créer dans nos services "-csrf.php
          */
 if(!isCsrfValid()()){
-    $e = " La methode utilisée n'est pas permeise ou vou avez été trop lent";
+    $e = " La methode utilisée n'est pas permise ou vous avez été trop lent";
 }
 
      }

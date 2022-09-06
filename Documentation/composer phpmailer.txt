@@ -1,0 +1,5 @@
+installation de composer php mailer 
+Cde a executer
+PS C:\xampp\htdocs\php_ratrap\ressources> composer require phpmailer/phpmailer   
+
+crée un rep VEndor avec composer.json et .lock

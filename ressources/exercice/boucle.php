@@ -1,6 +1,6 @@
 <?php
 $headerTitle = $title = "Session Page 2";
-require("./ressources/exercice/template/_header.php");
+require("/exercice/template/_header.php");
 ?>
 <!-- 
     

@@ -2,7 +2,7 @@
 // on crée une session
 session_start();
 /**
- * Verifier que l'on a une vclé "logged dans notre session ; 
+ * Verifier que l'on a une clé "logged dans notre session ; 
  * si elle existe , est-elle egal à True. Si oui on considère notre utilisateur comme connecté. 
  * Un utilisateur connecxté n'a rien à faire sur la page de connexion ; on le redirige ailleurs
  */
