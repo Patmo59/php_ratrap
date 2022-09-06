@@ -8,7 +8,7 @@
     présents dans le code de la page  -->
     <title>Cours PHP <?php echo $title?? "" ?></title>
     <!-- <link rel="stylesheet" href="./ressources/style/style.css"> -->
-    <link rel="stylesheet" href="/ressources/style/stylen.css">
+    <link rel="stylesheet" href="/ressources/style/style.css">
 </head>
 <body>
    <!--si j'ai une variable "_header", j'affiche son contenu sinon Syntaxes-->

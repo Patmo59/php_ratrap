@@ -28,7 +28,7 @@ h1{
 .synt { 
     border: 3px solid black;
     border-radius: 15px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.);
     grid-area: 1 / 1 / 5 / 2;
     background-color: rgba(127, 255, 212, 0.50);
     display: flex;
