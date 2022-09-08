@@ -103,7 +103,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["inscription"]))
     if(empty($error)){
         $sql = $pdo->prepare("INSERT INTO users(username, email, password) VALUES(?,?,?)");
         /* 
-            à la place d'un placeholder nommé comme précédement, Je peux utiliser des "?". Dans ce cas là, ce ne sera pas un tableau associatif que je donnerais mais un tableau classique. Seulement, ici l'ordre est très important.
+            à la place d'un placeholder nommé comme précédement, 
+            Je peux utiliser des "?". Dans ce cas là, 
+            ce ne sera pas un tableau associatif que je donnerais mais un 
+            envoitableau classique. Seulement, ici l'ordre est très important.
         */
         $sql->execute([$username, $email, $password]);
         header("Location: /");

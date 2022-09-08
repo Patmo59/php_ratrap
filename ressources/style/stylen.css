@@ -10,11 +10,12 @@ body{
 #titreTete{
     font-style: italic;
 }
-h1{
+h2{
+    font-size: 2em;
     color: rgb(89, 15, 15);
     text-align: center;
     padding-top: 5px;
-    text-transform: capitalize;
+    text-transform: uppercase;
 }
 .parent {
     height: 85vh;
@@ -28,7 +29,7 @@ h1{
 .synt { 
     border: 3px solid black;
     border-radius: 15px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
     grid-area: 1 / 1 / 5 / 2;
     background-color: rgba(127, 255, 212, 0.50);
     display: flex;
@@ -79,10 +80,11 @@ ol{
 a{
     display: flex;
     width: 230px;
-    background-color: rgb(120, 48, 48);
+    background-color: rgb(118, 93, 93);
     font-size: 1.1em;
     color: white;
-    border: 1px solid black;
+    border: 2px solid black;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
     margin: 10px 5px;
     padding: 10px 15px;

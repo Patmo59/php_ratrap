@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="./ressources/style/stylen.css">
 </head>
 <body>
-    <h1 id="titreTete"> <strong>P.H.P && CRUD</strong></h1>
+    <h2 id="titreTete"> <strong>Bases du P.H.P && CRUD</strong></h2>
         <div class="parent">
             <div class="synt">
-                <h1 >Syntaxe :</h1>
+                <h2 >Syntaxe</h2>
                 <ol>
                     <li><a href="/ressources/syntaxe/01-variables.php">Variables</a></li>
                     <li><a href="/ressources/syntaxe/02-condition.php">Conditions</a></li>
@@ -25,7 +25,7 @@
                 </ol>
             </div>
             <div class="formul">
-                <h1>Formulaire :</h1>
+                <h2>Formulaire</h2>
                 <ol>
                     <li><a href="ressources/form/01-get.php">En GET</a></li>
                     <li><a href="ressources/form/02-post.php">En POST</a></li>
@@ -37,7 +37,7 @@
                 </ol>
             </div>
             <div class="crud">
-                <h1>CRUD </h1>
+                <h2>CRUD </h2>
                 <ol>
                     <li><a href="/ressources/crud/01-create.php">Inscription</a></li>
                     <li><a href="/ressources/crud/02-read.php">Liste utilisateur</a></li>
@@ -45,13 +45,18 @@
                     <li><a href="./ressources/crud/04-delete.php">Supression</a></li>
                     <li><a href="./ressources/crud/05-connexion.php">Connexion</a></li>
                     <li><a href="./ressources/crud/06-deconnexion.php">Deconnexion</a></li>
+                    <li><a href="./ressources/crud/07-recapitulatif.php">Récapitulatif</a></li>
                 </ol>
             </div>
             <div class="exo">
-                <h1>Exercice :</h1>
+                <h2>BLOG</h2>
                 <ol>
-                    <li><a href="./ressources/crud/exercice/connexion.php">Connexion</a></li>
-                    <li><a href="./ressources/crud/exercice/deconnexion.php">Déconnexion</a></li>
+                    <li><a href="./ressources/crud/exercice/blog/connexion.php">Connexion</a></li>
+                    <li><a href="./ressources/crud/exercice/blog/read.php">READ (lire)</a></li>
+                    <li><a href="./ressources/crud/exercice/blog/create.php">Nouveau Message (create)</a></li>
+                    <li><a href="./ressources/crud/exercice/blog/update.php">Modifier(update)</a></li>
+                    <li><a href="./ressources/crud/exercice/blog/delete.php">Suppression(delete)</a></li>
+                    <li><a href="./ressources/crud/exercice/blog/deconnexion.php">Déconnexion</a></li>
                 </ol>
             </div>
 </div>

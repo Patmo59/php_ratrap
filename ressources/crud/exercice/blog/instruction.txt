@@ -1,0 +1,56 @@
+Créer une table message tel que :
+
+    - idMessage int AI PK
+    - message text
+    - createAt default timestamp
+    - editeAt default NULL
+    - idUser FK cascade
+
+CREATE TABLE messages (idMessage int NOT NULL AUTO_INCREMENT, PRIMARY KEY (idMessage), message text NOT NULL, createdAt datetime DEFAULT current_timestamp, editedAT datetime DEFAULT NULL, idUser int NOT NULL, CONSTRAINT fk_userId FOREIGN 
+KEY (idUser) REFERENCES users(idUser) ON DELETE CASCADE ON UPDATE CASCADE);
+
+Puis suivre les instructions des fichiers :
+
+    1.read.php ------------------------------
+    <?php 
+    /* 
+        1. Ne venir ici que si un utilisateur a été selectionné en GET.
+        2. Afficher tous les messages de l'utilisateur avec un message indiquant si il n'y en a aucun.
+        3. Si on est sur la page de l'utilisateur connecté, afficher un bouton effacer et un bouton modifier 
+            à côté de chaque message de l'utilisateur.
+        4. Toujours si c'est la page de l'utilisateur connecté, afficher un formulaire permettant de poster 
+            de nouveaux messages. qui redirigera vers la page create.
+        5. vérifie si il y a un flash message en session, l'affiche puis le supprime.
+    */
+?>
+    2. create.php --------------------------------------
+
+    <?php 
+    /*
+        1. Cette page n'est accessible que si on est connectÃ©. 
+        2. Traite le formulaire de nouveau message puis redirige vers la page read.php
+        3. Ajout de flash message en session.
+    */
+?>
+    3. update.php ----------------------------------
+    <?php 
+    /*
+    1. Cette page n'est accessible que si on est connecté et que le message selectionné appartient 
+    bien à l'utilisateur connecté. 
+    2. affiche un formulaire d'édition, le traite puis redirige vers la page read.php
+    3. Ajout de flash message en session.
+    */
+    ?>
+    4. delete.php ------------------------
+    <?php 
+    /*
+        1. Cette page n'est accessible que si on est connecté et que le message selectionné appartient 
+            bien à l'utilisateur connecté. 
+        2. Traite la suppression puis redirige vers la page read.php
+        3. Ajout de flash message en session.
+    */
+    Le MCD est dans le fichier  MCD-blog.png dans Documentation
+?>
+
+ 
+

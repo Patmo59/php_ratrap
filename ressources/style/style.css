@@ -44,12 +44,13 @@ footer a{
     font-size: 2rem;
 }
 p{
-    margin: 5rem auto;
+    margin: rem auto;
     width: 80vw;
     display: flex;
     text-align: center;
     align-items: center;
     font-size: clamp(2rem, 20vh, 3rem);
+    /* font-size: 2rem; */
 }
 .error{ /*pour les messages d'erreur*/ 
     color: red;

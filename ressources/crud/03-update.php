@@ -4,8 +4,8 @@ isLogged(true, "./05-connexion.php");
 
 /**
  * si l'utilisateur n'est pas connecté, il est redirigé.
- * si l'utiisateru  vien sur cette page, sans indiquer d'id, il est redirigé.
- * si l'utiisateru  vien sur cette page, sans que ce soit son id, il est redirigé.
+ * si l'utiisateur  vient sur cette page, sans indiquer d'id, il est redirigé.
+ * si l'utiisateur  vient sur cette page, sans que ce soit son id, il est redirigé.
  * 
  */
 if(empty($_GET["id"]) || $_SESSION["idUser"] != $_GET["id"]){

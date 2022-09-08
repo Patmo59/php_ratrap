@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $pass = trim($_POST["password"]);
             }
             if(empty($error)){
-                require "../../ressources/service/_pdo.php";
+                require "../../service/_pdo.php"; 
                 $pdo = connexionPDO();
                 $sql = $pdo->prepare("SELECT * FROM users WHERE email=?");
                 $sql->execute([$email]);
@@ -34,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         $_SESSION["username"] = $user["username"];
                         $_SESSION["idUser"] = $user["idUser"];
                         $_SESSION["email"] = $user["email"];
-                        $_SESSION["expire"] = time()+ (60*60);
+                        // $_SESSION["expire"] = time()+ (60*60);//!ne pas oublier de décommenter une fois opérationnel
                         header("location: ../02-read.php");
                         exit;
                     }
@@ -52,6 +52,7 @@ $headerTitle = "CONNEXION";
 require "../../template/_header.php" 
 ?>
 <!-- form:post>label+input:email+span.error+br+label+input:password+span.error+br+input:submit -->
+ <p> Vous êtes déconnété  Veuillez vous connecté à votre compte</p>
 <form action="" method="post">
     <span class="error"><?php echo $error ["login"]?? ""; ?></span>
     <!-- email -->
